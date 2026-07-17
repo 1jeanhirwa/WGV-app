@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI-assisted vehicle photo inspection demonstration">
+  <title>Vehicle Inspection AI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><div class="brand"><span class="mark">VI</span><div><strong>Vehicle Inspection AI</strong><small>Photo-assisted inspection demo</small></div></div><span id="mode" class="pill">Checking mode…</span></header>
+  <main>
+    <section class="hero"><div><p class="eyebrow">GUIDED INSPECTION</p><h1>Turn vehicle photos into a clear first-look report.</h1><p>Capture details, upload up to eight images, review suggested findings, and export a report for human review.</p></div><button id="load-demo" class="secondary">Load completed demo</button></section>
+    <nav class="steps" aria-label="Progress"><span class="active">1 Vehicle</span><span>2 Photos</span><span>3 Analyze</span><span>4 Report</span></nav>
+    <section class="card">
+      <h2>Vehicle details</h2>
+      <div class="grid"><label>Year<input id="year" inputmode="numeric" placeholder="2022"></label><label>Make<input id="make" placeholder="Example: Honda"></label><label>Model<input id="model" placeholder="Example: Accord"></label><label>Reference ID<input id="reference" placeholder="Demo-001"></label></div>
+    </section>
+    <section class="card">
+      <div class="section-title"><div><h2>Vehicle photos</h2><p>Use clear exterior photos. Avoid faces, plates, documents, and personal information.</p></div><span id="photo-count">0 / 8</span></div>
+      <label class="drop" id="drop"><input id="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple><strong>Choose or drop photos</strong><span>JPG, PNG, or WebP · up to 8 photos · 10 MB request limit</span></label>
+      <div id="previews" class="previews"></div>
+      <button id="analyze" disabled>Analyze vehicle</button><p id="status" role="status" aria-live="polite"></p>
+    </section>
+    <section class="card" id="report" hidden>
+      <div class="section-title"><div><p class="eyebrow">INSPECTION REPORT</p><h2 id="report-title">Review findings</h2></div><div class="actions"><button id="add" class="secondary">Add finding</button><button id="download" class="secondary">Download JSON</button><button id="print">Print / Save PDF</button></div></div>
+      <div id="summary" class="summary"></div><div id="findings"></div>
+      <div class="notice"><strong>Human review required.</strong> AI observations and cost ranges are preliminary educational estimates—not final appraisals, repair authorizations, safety determinations, or coverage decisions.</div>
+    </section>
+  </main>
+  <footer>Hack Day demonstration · No affiliation or endorsement implied · Do not use real customer data without authorization.</footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
